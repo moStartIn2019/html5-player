@@ -152,7 +152,7 @@ let playerRender = (function() {
     let index = $cur.index();
     $cur.addClass('active')
         .siblings().removeClass('active');
-    // 当对应的歌词已经到第6条时候，每条歌词需要让wrapper往上移一个offsetHeight
+    // 当对应的歌词已经到第5条时候，每条歌词需要让wrapper往上移一个offsetHeight
     if(index >= 4) {
       // 转原生js调用offHeight
       let curHeight = $cur[0].offsetHeight;
@@ -169,7 +169,7 @@ let playerRender = (function() {
       computedLyrics();
       let promise = queryLyrics();
       promise.then(result => {
-        let {lyric =''} = result,
+        let {lyric = ''} = result,
             obj = {32: '', 40: '(', 41: ')', 45: '-'};
             // console.log(lyric)
         lyric = lyric.replace(/&#(\d+)/g, (...arg) => {
@@ -182,7 +182,7 @@ let playerRender = (function() {
         return lyric;// 上一个then方法中返回的结果会作为下一个then实参传递过去
       })
       .then(lyric => {
-        lyric += '&#10;'; // 向歌词末尾直接结束符
+        lyric += '&#10;'; // 向歌词末尾添加结束符
         let lyricArray = [],
             reg = /\[(\d+)&#58;(\d+)&#46;(\d+)\]([^&#]+)&#10;/g;
         lyric.replace(reg, (...arg) => {
