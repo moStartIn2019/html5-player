@@ -153,7 +153,7 @@ let playerRender = (function() {
     $cur.addClass('active')
         .siblings().removeClass('active');
     // 当对应的歌词已经到第6条时候，每条歌词需要让wrapper往上移一个offsetHeight
-    if(index >= 5) {
+    if(index >= 4) {
       // 转原生js调用offHeight
       let curHeight = $cur[0].offsetHeight;
       // 每次都要减去curHeight
