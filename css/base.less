@@ -1,0 +1,181 @@
+@import 'reset.min.less';
+@green: #31c27c;
+
+html {
+  font-size: 100px;
+}
+
+html, body, .mainBox, .playerHeader, .lyrics,{
+  overflow: hidden;
+  position: relative;
+}
+
+html, body, .mainBox {
+  height: 100%;
+  // background: #f4f4f4;
+}
+
+// mainBox
+.mainBox {
+  max-width: 640px;
+  margin: 0 auto;
+
+  .bgImg, .bgMark{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    filter: blur(5px);
+    z-index: -2;
+  }
+  
+  .bgMark {
+    z-index: -1;
+    filter: none;
+    background-color: rgba(0,0,0,.5);
+  }
+}
+
+/*header*/ 
+.playerHeader {
+  height: 1.2rem;
+  padding: .3rem;
+
+  .playerHeaderImg {
+    width: 1.2rem;
+    height: 1.2rem;
+    position: absolute;
+    left: .3rem;
+    top: .3rem;
+  }
+
+  .title {
+    position: absolute;
+    margin-left: 1.4rem;
+    color: #fff;
+
+    h1, h2{
+      font-size: .36rem;
+      line-height: .6rem;
+      font-weight: normal;
+    }
+
+    h2 {
+      font-size: .3rem;
+    }
+  }
+
+  .playerBtn {
+    display: none;
+    position: absolute;
+    right: .3rem;
+    top: 50%;
+    margin-top: -.3rem;
+    width: .6rem;
+    height: .6rem;
+    background: url('../img/music.svg') no-repeat;
+    background-size: 100% 100%;
+    &.start {
+      animation: musicStart 2s linear infinite both;
+    }
+  }
+}
+
+@keyframes musicStart {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/*lyrics section*/ 
+.lyrics {
+  margin: .4rem .2rem;
+  // height: 70%;
+  .wrapper {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    transition: .5s;
+
+    p {
+      line-height: .84rem;
+      text-align: center;
+      font-size: .3rem;
+      color: rgba(255, 255, 255, .5);
+      letter-spacing: .04rem;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+
+      &.active {
+        color: @green;
+      }
+    }
+  }
+}
+
+/*footer*/
+.playerFooter {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 1.5rem;
+
+  .progressBox {
+    height: .8rem;
+    margin: 0 .2rem;
+    padding-bottom: .2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    span {
+      font-size: .24rem;
+      color: rgba(255, 255, 255, .5);
+      width: .9rem;
+      height: .8rem;
+      line-height: .8rem;
+      text-align: center;
+    }
+  
+    .progressBar {
+      width: 4.2rem;
+      height: .04rem;
+      background: rgba(255, 255, 255, .5);
+      // margin: .4rem auto;
+  
+      .currentBar {
+        width: 0;
+        height: 100%;
+        background-color: @green;
+        transition: 1s;
+      }
+    }
+  }
+    .downloadBtn {
+      display: block;
+      width: 4.4rem;
+      height: .9rem;
+      font-size: .36rem;
+      text-align: center;
+      line-height: .9rem;
+      color: #fff;
+      background: url('../img/sprite_play-1.png') no-repeat .15rem  @green; 
+      background-size: .6rem .6rem;
+      position: absolute;
+      left: 50%;
+      bottom: .05rem;
+      margin-left: -2.2rem;
+      border-radius: .45rem;
+      
+      &.active {
+        background-color: darken(@green, 20%);
+      }
+    }
+}

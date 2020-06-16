@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,user-scalable=no">
+  <title>模仿QQ音乐</title>
+  
+  <!-- dev -->
+  <link rel="stylesheet/less" href="css/base.less">
+  <script src="js/less-2.5.3.min.js"></script>
+
+  <!-- prefixfree -->
+  <script src="js/prefixfree.min.js"></script>
+  
+  <!-- rem -->
+  <script>
+    ~function anonymous(window) {
+      let computedRem = function() {
+        let body = document.documentElement,
+            winW = body.clientWidth,
+            baseW = 640;
+        if(winW >= baseW) {
+          body.style.fontSize = 100 + 'px';
+          return;
+        }
+        body.style.fontSize = winW / baseW * 100 + 'px';
+      }
+      computedRem();
+      window.addEventListener('resize', computedRem);
+    }(window);
+  </script>
+
+</head>
+<body>
+  <main class="mainBox">
+    <!-- background-image -->
+    <img src="img/north.jpg" alt="" class="bgImg">
+    <div class="bgMark"></div>
+
+    <!-- music audio -->
+    <audio src="img/周杰伦 - 一路向北.flac" autoplay="autoplay" class="music"></audio>
+    <!-- header -->
+    <header class="playerHeader">
+      <img src="img/north.jpg" alt="" class="playerHeaderImg">
+      <div class="title">
+        <h1>一路向北</h1>
+        <h2>周杰伦</h2>
+      </div>
+      <a href="javascript:;" class="playerBtn"></a>
+    </header>
+    <!-- lyrics -->
+    <section class="lyrics">
+      <div class="wrapper">
+        <!-- <p>666</p> -->
+      </div>
+    </section>
+    <!-- footer -->
+    <footer class="playerFooter">
+      <div class="progressBox">
+        <!-- 当前播放时间currentTime -->
+        <span class="leftTime"></span>
+        <div class="progressBar">
+          <div class="currentBar"></div>
+        </div>
+        <!-- 总播放时间duration -->
+        <span class="rightTime"></span>
+      </div>
+      <a href="https://i.y.qq.com/n2/m/index.html" class="downloadBtn">下载这首音乐</a>
+    </footer>
+  </main>
+
+  <script src="js/zepto.min.js"></script>
+  <script src="js/index.js"></script>
+</body>
+</html>
