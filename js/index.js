@@ -111,7 +111,7 @@ let playerRender = (function() {
       // 播放完成,清除监听
       if(currentTime >= duration) {
         clearInterval(autoTimer);
-        $leftTime.html(computed(duration));
+        $leftTime.html(computedTime(duration));
         // 进度条100%
         $currentBar.css('width', '100%');
         music.pause();
